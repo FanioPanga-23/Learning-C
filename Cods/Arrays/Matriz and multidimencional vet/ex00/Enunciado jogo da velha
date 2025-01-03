@@ -1,0 +1,5 @@
+1- Criar uma funcao para as jogadas e armazenar cada uma delas na matriz tabuleiro 3x3;
+2- Uma funcao que mostra o estado do tabuleiro a cada jogada;
+3- Uma funcao para solicitar os nomes dos jogadores logo ao inicio do jogo;
+4- Uma funcao para "A cada jogada o programa pergunantar separadamente as posicoes horizontal e vertical da jogada, nesta ordem";
+5- Uma funcao para verifacar casos de vitoria ou empate para interromper o jogo, mostrar a situacao do tabuleiro e encerrar a partida;

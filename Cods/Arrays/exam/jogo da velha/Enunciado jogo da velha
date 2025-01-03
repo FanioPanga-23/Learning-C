@@ -1,0 +1,5 @@
+1- Uma funcao para inicializar o tabuleiro vazio; V
+2- Uma funcao para solicitar os nomes dos jogadores logo ao inicio do jogo; V
+3- Uma funcao que mostra o estado do tabuleiro a cada jogada; V
+4- Uma funcao para as jogadas e armazenar cada uma delas na matriz tabuleiro 3x3. "A cada jogada o programa deve pergunantar separadamente as posicoes horizontal e vertical da jogada, nesta ordem";
+5- Uma funcao para verifacar casos de vitoria ou empate para interromper o jogo, mostrar a situacao do tabuleiro e questionar ao usuario se pretende: encerrar ou continuar com a partida;
