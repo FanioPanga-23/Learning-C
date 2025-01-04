@@ -1,18 +1,25 @@
 #include <stdio.h>
+#include <unistd.h>
+
+void	ft_putchar(char ch)
+{
+	write(1, &ch, 1);
+}
 
 int	main(void)
 {
-	char	strs[3][17] = {"Fanio", "Joao", "Panga"};
-	char	(*ptr_s)[17] = strs;
-	char	*ptr_ch;
+	char	strs[3][14] = {"Fanio", "Joao", "Panga"};
+	int	i;
+	int	j;
 
-	while (ptr_s - strs < 3)
+	i = 0;
+	while (i < 3)
 	{
-		ptr_ch = *ptr_s;
-		while (*ptr_ch != '\0')
-			putchar(*ptr_ch++);
-		putchar(' ');
-		ptr_s++;
+		j = 0;
+		while (strs[i][j] != '\0')
+			ft_putchar(strs[i][j++]);
+		write(1, " ", 1);
+		i++;
 	}
-	putchar('\n');
+	write(1,"\n", 2);
 }

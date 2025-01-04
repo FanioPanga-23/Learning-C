@@ -1,20 +1,18 @@
 #include <stdio.h>
-#define N_STRINGS 3
 
 int	main(void)
 {
-	char	nome[N_STRINGS][12] = {"Hi", "Fanio", "Mears"};
-	char	(*ptr_nome)[12] = nome;
-	char	*ptr_ch;
+	char	vs[4][25] = {"Fanio", "Joao", "Panga", "Programador"};
+	char	(*ptr_vs)[25] = vs;
+	char	*ptr_ptr_vs;
 
-	/* Enquanto a diferenca entre o ponteiro e o vetor for menor que o N_STRINGS (vai fazer 3 lacos)*/
-	while (ptr_nome - nome < N_STRINGS)
+	while (ptr_vs - vs < 4)
 	{
-		ptr_ch = *ptr_nome;
-		while (*ptr_ch != '\0')
-			putchar(*ptr_ch++);
+		ptr_ptr_vs = *ptr_vs;
+		while (*ptr_ptr_vs != '\0')
+			printf("%c", *ptr_ptr_vs++);
 		putchar(' ');
-		ptr_nome++;
+		ptr_vs++;
 	}
 	putchar('\n');
 }

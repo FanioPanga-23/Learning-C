@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 
 int	ft_strlen(char *s)
 {
@@ -10,15 +11,36 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
+void	ft_putchar(char ch)
+{
+	write(1, &ch, 1);
+}
+
 int	main(void)
 {
 	char	s[] = "Exame";
-	char	*ps = s;
-	char	**pps = &ps;
+	char	*ps;
+	char	**pps;
 
-	printf("%c %c %c\n", *s, *ps, **pps);
-	printf("%c %c %c\n", *(s+1), *(ps+2), *(*pps+3));
-	printf("%c %c %c\n", *(s+4), *(ps+4), *(*pps+4));
+	ps = s;
+	pps = &ps;
+	ft_putchar(*s);
+	write(1, " ", 1);
+	ft_putchar(*ps);
+	write(1, " ", 1);
+	ft_putchar(**pps);
+	write(1, "\n", 1);
+	ft_putchar(*(s+1));
+	write(1, " ", 1);
+	ft_putchar(*(ps+2));
+	write(1, " ", 1);
+	ft_putchar(*(*pps+3));
+	write(1, "\n", 1);
+	ft_putchar(*(s+4));
+	write(1, " ", 1);
+	ft_putchar(*(ps+4));
+	write(1, " ", 1);
+	ft_putchar(*(*pps+4));
+	write(1, "\n", 1);
 	printf("%d %d %d\n", ft_strlen(s), ft_strlen(ps), ft_strlen(*pps));
-	printf("%ld %ld %ld\n", (long)&s[1], (long)++ps, (long)&pps);
 }
