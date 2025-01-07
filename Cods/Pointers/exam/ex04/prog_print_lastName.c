@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 
 int	ft_strlen(char *s)
 {
@@ -10,73 +11,89 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
+void	ft_putchar(char ch)
+{
+	write(1, &ch, 1);
+}
+
+void	ft_putstr(char *s)
+{
+	while (*s)
+	{
+		ft_putchar(*s);
+		s++;
+	}
+	return ;
+}
+
+char	*ft_remch(char *s)
+{
+	*(s+ft_strlen(s) - 1) = '\0';
+}
+
+int	ft_strcountc(char *s, char ch)
+{
+	int	i;
+
+	i = 0;
+	while (*s)
+	{
+		if (*s == ch)
+			i++;
+		s++;
+	}
+	return (i);
+}
+
 char	*ft_strrev(char *s)
 {
-	int	len;
 	int	i;
+	int	len;
 	char	tmp;
 
 	i = 0;
 	len = ft_strlen(s) - 1;
-	while (i < len)
+	while (len > i)
 	{
 		tmp = s[i];
-		s[i] = s[len];
-		s[len] = tmp;
-		len--;
-		i++;
+		s[i++] = s[len];
+		s[len--] = tmp;
 	}
 	return (s);
 }
 
-void	ft_cpy_Lname(char *nome, char *sobrenome)
+void	ft_lastName(char *nome, char *sobrenome)
 {
 	int	len;
 	int	i;
-	int	y;
 
-	y = 0;
-	while (nome[y] != ' ')
+	if (ft_strcountc(nome, ' ') == 0)
+		sobrenome[0] = '\0';
+	else
 	{
-		if (nome[y] == '\0')
+		i = 0;
+		len = ft_strlen(nome) - 1;
+		while (nome[len] != ' ')
 		{
-			sobrenome[0] = '\0';
-			return ;
+			sobrenome[i] = nome[len];
+			i++;
+			len--;
 		}
-		y++;
+		sobrenome[i] = '\0';
 	}
-	if (nome[0] == '\0')
-		return;
-	i = 0;
-	len = ft_strlen(nome) - 1;
-	while (nome[len] != ' ')
-		sobrenome[i++] = nome[len--];
-	sobrenome[i] = '\0';
-	nome[len] = '\0';
-}
-
-char	*ft_str_rmBreak(char *s)
-{
-	while (1)
-	{
-		if (*s == '\n')
-		{
-			*s = '\0';
-			return (s);
-		}
-		s++;
-	}
-	return (NULL);
 }
 
 int	main(void)
 {
-	char	nome[80];
-	char	sobrenome[50] = "Mears";
+	char	nome[50];
+	char	sobrenome[50];
+	char	ask[] = "Type your full name: ";
+	char	na[] = "Mears";
 
-	printf("Type Your Full Name: ");
+	ft_putstr(ask);
 	fgets(nome, sizeof(nome), stdin);
-	ft_str_rmBreak(nome);
-	ft_cpy_Lname(nome, sobrenome);
-	printf("%s %s\n", ft_strrev(sobrenome), nome);
+	ft_remch(nome);
+	ft_lastName(nome, sobrenome);
+	ft_putstr(ft_strrev(sobrenome));
+	write(1, "\n", 1);
 }
