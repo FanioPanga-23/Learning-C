@@ -1,28 +1,28 @@
 #include <stdio.h>
 
-int	ft_isVowel(char ch)
+int	ft_isVowell(char ch)
 {
-	char	vowels[] = "aeiou";
+	char	v[5] = "aeiou";
 	int	i;
 
 	i = 0;
-	while (vowels[i] != '\0')
+	while (v[i] != '\0')
 	{
-		if (ch == vowels[i])
+		if (v[i] == ch)
 			return (1);
 		else
-			if (ch == (vowels[i] - 32))
+			if ((v[i] - 32) == ch)
 				return (1);
 		i++;
 	}
 	return (0);
 }
 
-char	*ft_first_vogal(char *s)
+char	*ft_First_Vogal(char *s)
 {
 	while (*s)
 	{
-		if (ft_isVowel(*s))
+		if (ft_isVowell(*s))
 			return (s);
 		s++;
 	}

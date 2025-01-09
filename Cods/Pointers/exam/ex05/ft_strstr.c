@@ -30,28 +30,19 @@ char	*ft_strstr(char *s1, char *s2)
 	int	i;
 	int	j;
 	int	k;
-	char	*ptr;
 
 	i = 0;
 	while (s1[i] != '\0')
 	{
 		j = i;
 		k = 0;
-		while (s2[k++] == s1[j])
+		while (s1[j] == s2[k] && s2[k] != '\0')
+		{
+			k++;
 			j++;
+		}
 		if (s2[k] == '\0')
-			return (ptr = &s1[i]);
-		else
-			i++;
+			return (s1+i);
+		i++;
 	}
-	return (NULL);
-}
-
-int	main(void)
-{
-	char	s1[] = "Fanio Mears";
-	char	s2[] = "ars ";
-
-	ft_putstr(ft_strstr(s1, s2));
-	write(1, "\n", 1);
 }
