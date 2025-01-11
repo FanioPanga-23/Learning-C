@@ -10,22 +10,50 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-/* Pode ser feita de um modo mais eficaz, usando as funcoes ft_strcat e ft_strmemcpy */
+char	*ft_strrcpy(char *dest, char *orig)
+{
+	int	len;
+
+	for (len = ft_strlen(orig); len >= 0; len--)
+		dest[len] = orig[len];
+	return (dest);
+}
+
+char	*ft_strcat(char *dest, char *orig)
+{
+	int	len;
+	int	i;
+
+	i = 0;
+	len = ft_strlen(dest);
+	while (orig[i] != '\0')
+		dest[len++] = orig[i++];
+	dest[len] = '\0';
+	return (dest);
+}
+
+char	*ft_memcpy(char *dest, char *orig, int n)
+{
+	int	i;
+
+	i = 0;
+	while (orig[i] != '\0' && i < n)
+		dest[i] = orig[i++];
+	dest[i] = '\0';
+	return (dest);
+}
+
 char	*ft_strins(char *dest, char *orig)
 {
-	int	lo;
-	int	i;
-	int	j;
-
-	lo = ft_strlen(orig);
-	i = 0;
-	j = 0;
-	while (ft_strlen(dest) >= i)
-		orig[lo++] = dest[i++];
-	while (ft_strlen(orig) >= j)
-	{
-		dest[j] = orig[j];
-		j++;
-	}
+	ft_strrcpy(dest+ft_strlen(orig), dest);
+	ft_memcpy(dest, orig, ft_strlen(orig));
 	return (dest);
+}
+
+int	main(void)
+{
+	char	dest[] = "Autonoma";
+	char	orig[] = "Universidade";
+
+	printf("%s\n", ft_strins(dest, orig));
 }
