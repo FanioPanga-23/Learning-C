@@ -1,23 +1,27 @@
 #include <stdio.h>
 
-int	ft_isUpper(char ch)
+int	ft_is_upper(char ch)
 {
-	return (ch >= 'A' && ch <= 'Z');
+	return ((ch >= 65 && ch <= 90));
 }
 
-char	*ft_strDellUpper(char *s)
+char	*ft_str_DelUpper(char *s)
 {
-	char	*ptr;
-	char	*first;
+	char	*ptr_s;
+	char	*ptr_pt;
 
-	ptr = s;
-	first = ptr;
+	ptr_s = s;
+	ptr_pt = ptr_s;
 	while (*s)
 	{
-		if (!ft_isUpper(*s))
-			*ptr++ = *s;
-		s++;
+		if (ft_is_upper(*s) != 1)
+		{
+			*ptr_s++ = *s++;
+			continue;
+		}
+		else
+			s++;
 	}
-	*ptr = '\0';
-	return (first);
+	*ptr_s = '\0';
+	return (ptr_pt);
 }

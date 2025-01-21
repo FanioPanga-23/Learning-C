@@ -28,7 +28,12 @@ void	ft_putstr(char *s)
 
 char	*ft_remch(char *s)
 {
-	*(s+ft_strlen(s) - 1) = '\0';
+	int	len;
+
+	len = ft_strlen(s);
+	if (s[len - 1] == '\n' && s[len] == '\0')
+		s[len - 1] = '\0';
+	return (s);
 }
 
 int	ft_strcountc(char *s, char ch)

@@ -15,7 +15,7 @@ char	*ft_strcpy(char *dest, char *orig)
 	int	i;
 	
 	i = 0;
-	while (dest[i] = orig[i])
+	while ((dest[i] = orig[i]) != '\0')
 		i++;
 	dest[i] = '\0';
 	return (dest);
@@ -26,47 +26,38 @@ char	*ft_strstr(char *s1, char *s2)
 	int	i;
 	int	j;
 	int	k;
-	int	len;
 
 	i = 0;
-	k = 0;
-	j = 0;
-	len = ft_strlen(s1) - ft_strlen(s2);
-	while (s1[i] <= len)
+	while (s1[i] != '\0')
 	{
-		while (s1[j] == s2[j++])
-			;
-		if (s2[j] == '\0')
+		j = i;
+		k = 0;
+		while (s1[j] == s2[k] && s2[k] != '\0')
+		{
+			k++;
+			j++;
+		}
+		if (s2[k] == '\0')
 			return (s1+i);
 		i++;
 	}
 	return (NULL);
 }
 
-char	*ft_strDellStr(char *s1, char *s2)
+char	*ft_strDelStr(char *s1, char *s2)
 {
-	char	*ptr_s1;
-	char	*first;
+	char	*loc;
 
-	ptr_s1 = s1;
-	first = ptr_s1;
-	while (*s1)
-	{
-		if (*s1 != *s2)
-			*ptr_s1++ = *s1;
-		else
-			s2++;
-		s1++;
-	}
-	*ptr_s1 = '\0';
-	return (first);
+	loc = ft_strstr(s1, s2);
+	if (loc != NULL)
+		ft_strcpy(loc, loc+ft_strlen(s2));
+	return (s2);
 }
 
 int	main(void)
 {
-	/*  roeu a rolha da garrafa de rum do rei da Rússia */
-	char	s[] = "O rato";
-	char	s1[] = "rato";
+	char	s1[] = "da garrafa yy";
+	char	s2[] = "garrafa";
 
-	printf("%s\n", ft_strstr(s, s1));
+	printf("%s\n", ft_strDelStr(s1, s2));
 }

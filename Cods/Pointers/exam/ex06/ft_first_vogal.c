@@ -2,7 +2,7 @@
 
 int	ft_isVowell(char ch)
 {
-	char	v[5] = "aeiou";
+	char	v[] = "aeiouAEIOU";
 	int	i;
 
 	i = 0;
@@ -10,15 +10,12 @@ int	ft_isVowell(char ch)
 	{
 		if (v[i] == ch)
 			return (1);
-		else
-			if ((v[i] - 32) == ch)
-				return (1);
 		i++;
 	}
 	return (0);
 }
 
-char	*ft_First_Vogal(char *s)
+char	*ft_first_vogal(char *s)
 {
 	while (*s)
 	{
