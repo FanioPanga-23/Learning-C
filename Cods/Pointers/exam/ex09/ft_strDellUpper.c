@@ -15,13 +15,16 @@ char	*ft_str_DelUpper(char *s)
 	while (*s)
 	{
 		if (ft_is_upper(*s) != 1)
-		{
-			*ptr_s++ = *s++;
-			continue;
-		}
-		else
-			s++;
+			*ptr_s++ = *s;
+		s++;
 	}
 	*ptr_s = '\0';
 	return (ptr_pt);
+}
+
+int	main(void)
+{
+	char	str[] = "mEaRs";
+
+	printf("%s\n", ft_str_DelUpper(str));
 }
