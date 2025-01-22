@@ -54,12 +54,3 @@ char	*ft_strDelStr(char *s1, char *s2)
 		ft_strcpy(loc, loc+ft_strlen(s2)); /*Copiamos a string 'loc' nela mesma a partir do caractere loc+ft_strlen(s2). Significa que ignoramos os caracteres da string 's2' e copiamos os restantes*/
 	return (s1);
 }
-
-int	main(void)
-{
-	char	s1[] = "da garrafa yy";
-	char	s2[] = "garrafa";
-
-	printf("%s\n", ft_strDelStr(s1, s2));
-	/*ft_strDelStr(s1, s2);*/
-}
