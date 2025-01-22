@@ -48,10 +48,11 @@ char	*ft_strDelStr(char *s1, char *s2)
 {
 	char	*loc;
 
+	/*Após essa operação, 'loc e s1' ficaram vinculadas por que essa função que foi chamada retorna o endereço de s1. Significa que, toda alteração na string 'loc' vai afetar também a string s1*/
 	loc = ft_strstr(s1, s2);
 	if (loc != NULL)
-		ft_strcpy(loc, loc+ft_strlen(s2));
-	return (s2);
+		ft_strcpy(loc, loc+ft_strlen(s2)); /*Copiamos a string 'loc' nela mesma a partir do caractere loc+ft_strlen(s2). Significa que ignoramos os caracteres da string 's2' e copiamos os restantes*/
+	return (s1);
 }
 
 int	main(void)
@@ -60,4 +61,5 @@ int	main(void)
 	char	s2[] = "garrafa";
 
 	printf("%s\n", ft_strDelStr(s1, s2));
+	/*ft_strDelStr(s1, s2);*/
 }
