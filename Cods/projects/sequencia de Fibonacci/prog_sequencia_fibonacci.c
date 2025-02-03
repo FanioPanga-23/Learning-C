@@ -52,17 +52,18 @@ int	ft_user_input(void)
 void	ft_Fibonacci(int lim)
 {
 	int	i;
-	int	j;
+	int	fb;
 	int	k;
 
-
-	k = 1;
+	k = 0;
 	i = 1;
-	j = 0;
-	while (lim >= k)
+	fb = 0;
+	while (lim > k)
 	{
-		fb = i + j;
-		printf("%d, ", );
+		fb = fb + i;
+		printf(" %d, ", fb);
+		i++;
+		k++;
 	}
 }
 
