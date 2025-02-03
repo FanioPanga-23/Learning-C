@@ -39,7 +39,7 @@ int	ft_user_input(void)
 			ft_ERROR_invalid_input();
 		}
 		else
-			if (nb > NULLO)
+			if (nb >= NULLO)
 				return (nb);
 			else
 			{
@@ -52,19 +52,34 @@ int	ft_user_input(void)
 void	ft_Fibonacci(int lim)
 {
 	int	i;
+	int	f0;
+	int	f1;
 	int	fb;
-	int	k;
 
-	k = 0;
-	i = 1;
-	fb = 0;
-	while (lim > k)
+	f0 = 0;
+	f1 = 1;
+	i = 2;
+	if (lim == 0)
 	{
-		fb = fb + i;
-		printf(" %d, ", fb);
-		i++;
-		k++;
+		printf("Fibonacci de %2d = %2d\n", lim, lim);
+		return ;
 	}
+	else
+		if (lim == 1)
+		{
+			printf("Sequência de Fibonacci: %2d, %2d\n", f0, f1);
+			return ;
+		}
+	printf("Sequência de Fibonacci: %2d, %2d", f0, f1);
+	while (lim >= i)
+	{
+		fb = f0 + f1;
+		printf(", %2d", fb);
+		f0 = f1;
+		f1 = fb;
+		i++;
+	}
+	putchar('\n');
 }
 
 int	ft_continuar(void)
