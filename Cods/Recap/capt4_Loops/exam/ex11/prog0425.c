@@ -16,5 +16,5 @@ int	main(void)
 	{
 		printf("Digite um numero inteiro: ");
 		scanf(" %d", &num);
-	} while (num < 0 && num > 100);
+	} while (num <= 0 || num > 100);
 }
