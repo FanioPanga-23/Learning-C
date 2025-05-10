@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAX 3
+#define MAX 5
 
 void	ft_transpor(int v[MAX][MAX])
 {
@@ -19,36 +19,35 @@ void	ft_transpor(int v[MAX][MAX])
 		i++;
 	}
 	i = 0;
-        while (i < MAX)
+    while (i < MAX)
+    {
+        j = 0;
+        while (j < MAX)
         {
-                j = 0;
-                while (j < MAX)
-                {
-                        v[i][j] = t[i][j];
-                        j++;
-                }
-                i++;
-        }
+            v[i][j] = t[i][j];
+                j++;
+            }
+            i++;
+    }
 }
 
-int	main(void)
+/*int	main(void)
 {
-	int	v[MAX][MAX] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+	int	v[MAX][MAX] = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {11, 12, 13, 14, 15}, {16, 17, 18, 19, 20}, {21, 22, 23, 24, 25}};
 	int	i;
 	int	j;
 
 	ft_transpor(v);
-
 	i = 0;
 	while (i < MAX)
 	{
 		j = 0;
 		while (j < MAX)
 		{
-			printf("%d", v[i][j]);
+			printf("%2d, ", v[i][j]);
 			j++;
 		}
 		putchar('\n');
 		i++;
 	}
-}
+}*/
