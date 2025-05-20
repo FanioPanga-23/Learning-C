@@ -1,10 +1,8 @@
 /********************************************************************************
- * PROG0714.C:	Inverta a string e devolve					*
+ * PROG0714.C:	Inverta a string e devolve a invertida				*
  * AUTOR:	Fânio Panga							*
  * DATA:	16/05/2025							*
  * ******************************************************************************/
-
-#include <stdio.h>
 
 int	ft_strlen(char *s)
 {
@@ -27,13 +25,8 @@ char	*ft_strrev(char *s)
 	while (i < len)
 	{
 		tmp = s[i];
-		s[i] = s[len];
-		s[len++] = tmp;
+		s[i++] = s[len];
+		s[len--] = tmp;
 	}
 	return (s);
-}
-
-int	main(void)
-{
-	printf("Reverse: %s\n", ft_strrev("Panga"));
 }
