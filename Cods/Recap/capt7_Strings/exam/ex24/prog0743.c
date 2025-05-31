@@ -1,8 +1,10 @@
 /********************************************************************************
- * PROG0738.C:	Recebe e duplica o conteudo de uma string			*
+ * PROG0743.C:	Verifica se o tamanho da string e igual ao valor do argumento	*
  * AUTOR:	Fânio Panga							*
- * DATA:	21/05/2025							*
+ * DATA:	22/05/2025							*
  * ******************************************************************************/
+
+#include <stdio.h>
 
 int	ft_strlen(char *s)
 {
@@ -14,18 +16,7 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-char	*ft_strduplica(char *s)
+int	ft_Is_Len_OK(char *s, int comprimento)
 {
-	int	i;
-	int	len;
-
-	i = 0;
-	len = ft_strlen(s);
-	while (i < len)
-	{
-		s[len+i] = s[i];
-		i++;
-	}
-	s[2*len] = '\0';
-	return (s);
+	return (ft_strlen(s) == comprimento);
 }
