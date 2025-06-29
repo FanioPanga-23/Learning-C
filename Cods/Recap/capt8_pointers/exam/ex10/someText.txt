@@ -1,0 +1,2 @@
+Meu primeiro arquivo gerado em C
+Waw, isso e mesmo bastante interessante!
